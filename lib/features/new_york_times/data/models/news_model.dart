@@ -10,9 +10,9 @@ class NewsModel extends NewsEntity {
   final String? status;
   final String? copyright;
   final int? num_results;
-  final List<NewsDataModel>? results;
+  List<NewsDataModel>? results;
 
-  const NewsModel({
+  NewsModel({
     this.status,
     this.copyright,
     this.num_results,

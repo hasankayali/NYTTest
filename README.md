@@ -1,6 +1,9 @@
 # nytimestest
 
 A new Flutter project.
+<p align="center">
+ <img width="800" alt="wonderous-banner-800w" src="coverage/1024 x 500  pix-01.png">
+</p>
 
 ## Getting Started
 

@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-
-import 'media.dart';
+import 'package:nytimestest/features/new_york_times/data/models/media_data_model.dart';
 
 class NewsDataEntity extends Equatable {
   final String? uri;
@@ -22,7 +21,7 @@ class NewsDataEntity extends Equatable {
   final List<String>? org_facet;
   final List<String>? per_facet;
   final List<String>? geo_facet;
-  final List<MediaEntity>? media;
+  final List<MediaDataModel>? media;
   final int? eta_id;
   const NewsDataEntity({
     this.uri,

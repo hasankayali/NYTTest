@@ -16,6 +16,7 @@ class NewsDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           newsDataEntity.title ?? "",
+          style: TextStyle(fontWeight: FontWeight.normal),
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
@@ -35,31 +36,50 @@ class NewsDetailsPage extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            NewsDetailWidget(
-              title: "Abstract: ",
-              value: newsDataEntity.abstract ?? "",
-            ),
-            Divider(
-              color: Theme.of(context).colorScheme.secondary,
-              thickness: 1,
-            ),
+            if (newsDataEntity.abstract != null &&
+                newsDataEntity.abstract!.isNotEmpty)
+              Column(
+                children: [
+                  NewsDetailWidget(
+                    title: "Abstract ",
+                    textStyle: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.sp),
+                    value: newsDataEntity.abstract ?? "",
+                  ),
+                  Divider(
+                    color: Theme.of(context).colorScheme.secondary,
+                    thickness: 1,
+                  ),
+                ],
+              ),
             if (newsDataEntity.media != null &&
                 newsDataEntity.media!.isNotEmpty)
-              NewsDetailWidget(
-                title: "Caption: ",
-                value: newsDataEntity.media!.first.caption ?? "",
+              Column(
+                children: [
+                  NewsDetailWidget(
+                    title: "Caption ",
+                    textStyle: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.sp),
+                    value: newsDataEntity.media!.first.caption ?? "",
+                  ),
+                  Divider(
+                    color: Theme.of(context).colorScheme.secondary,
+                    thickness: 1,
+                  ),
+                ],
               ),
-            Divider(
-              color: Theme.of(context).colorScheme.secondary,
-              thickness: 1,
-            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.r),
               child: Text(
                 "Details",
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.secondary,
-                    fontWeight: FontWeight.bold),
+                    color: Theme.of(context).colorScheme.primary,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.sp),
               ),
             ),
             SizedBox(
@@ -68,18 +88,22 @@ class NewsDetailsPage extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: NewsDetailWidget(
-                    title: "By: ",
-                    value: newsDataEntity.byline ?? "",
+                if (newsDataEntity.byline != null &&
+                    newsDataEntity.byline!.isNotEmpty)
+                  Expanded(
+                    child: NewsDetailWidget(
+                      title: "By: ",
+                      value: newsDataEntity.byline ?? "",
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: NewsDetailWidget(
-                    title: "source: ",
-                    value: newsDataEntity.source ?? "",
+                if (newsDataEntity.source != null &&
+                    newsDataEntity.source!.isNotEmpty)
+                  Expanded(
+                    child: NewsDetailWidget(
+                      title: "source: ",
+                      value: newsDataEntity.source ?? "",
+                    ),
                   ),
-                ),
               ],
             ),
             SizedBox(
@@ -88,18 +112,22 @@ class NewsDetailsPage extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: NewsDetailWidget(
-                    title: "Published at: ",
-                    value: newsDataEntity.published_date ?? "",
+                if (newsDataEntity.published_date != null &&
+                    newsDataEntity.published_date!.isNotEmpty)
+                  Expanded(
+                    child: NewsDetailWidget(
+                      title: "Published at: ",
+                      value: newsDataEntity.published_date ?? "",
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: NewsDetailWidget(
-                    title: "updated at: ",
-                    value: newsDataEntity.updated ?? "",
+                if (newsDataEntity.updated != null &&
+                    newsDataEntity.updated!.isNotEmpty)
+                  Expanded(
+                    child: NewsDetailWidget(
+                      title: "updated at: ",
+                      value: newsDataEntity.updated ?? "",
+                    ),
                   ),
-                ),
               ],
             ),
             SizedBox(
@@ -108,64 +136,70 @@ class NewsDetailsPage extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: NewsDetailWidget(
-                    title: "Section: ",
-                    value: newsDataEntity.section ?? "",
+                if (newsDataEntity.section != null &&
+                    newsDataEntity.section!.isNotEmpty)
+                  Expanded(
+                    child: NewsDetailWidget(
+                      title: "Section: ",
+                      value: newsDataEntity.section ?? "",
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: NewsDetailWidget(
-                    title: "Type: ",
-                    value: newsDataEntity.type ?? "",
+                if (newsDataEntity.type != null &&
+                    newsDataEntity.type!.isNotEmpty)
+                  Expanded(
+                    child: NewsDetailWidget(
+                      title: "Type: ",
+                      value: newsDataEntity.type ?? "",
+                    ),
                   ),
-                ),
               ],
             ),
             SizedBox(
               height: 10.h,
             ),
-            NewsDetailWidget(
-              title: "Tags: ",
-              value: newsDataEntity.des_facet
-                  .toString()
-                  .substring(1, newsDataEntity.des_facet.toString().length - 1),
-            ),
+            if (newsDataEntity.des_facet != null &&
+                newsDataEntity.des_facet!.isNotEmpty)
+              NewsDetailWidget(
+                title: "Tags: ",
+                value: newsDataEntity.des_facet.toString().substring(
+                    1, newsDataEntity.des_facet.toString().length - 1),
+              ),
             Divider(
               color: Theme.of(context).colorScheme.secondary,
               thickness: 1,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.r),
-              child: RichText(
-                maxLines: 3,
-                text: TextSpan(children: [
-                  TextSpan(
-                    text: "Link to full article: ",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.sp,
-                        color: Colors.black),
-                  ),
-                  WidgetSpan(
-                    child: InkWell(
-                        onTap: () {
-                          if (newsDataEntity.url != null &&
-                              newsDataEntity.url!.isNotEmpty) {
-                            launchUrlString(newsDataEntity.url!);
-                          }
-                        },
-                        child: Text(
-                          newsDataEntity.url ?? "",
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 16.sp,
-                              color: Colors.blue),
-                        )),
-                  ),
-                ]),
-              ),
-            )
+            if (newsDataEntity.url != null && newsDataEntity.url!.isNotEmpty)
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.r),
+                child: RichText(
+                  maxLines: 3,
+                  text: TextSpan(children: [
+                    TextSpan(
+                      text: "Link to full article ",
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.sp),
+                    ),
+                    WidgetSpan(
+                      child: InkWell(
+                          onTap: () {
+                            if (newsDataEntity.url != null &&
+                                newsDataEntity.url!.isNotEmpty) {
+                              launchUrlString(newsDataEntity.url!);
+                            }
+                          },
+                          child: Text(
+                            newsDataEntity.url ?? "",
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 16.sp,
+                                color: Colors.blue),
+                          )),
+                    ),
+                  ]),
+                ),
+              )
           ],
         ),
       ),

@@ -6,8 +6,11 @@ part 'news_state.g.dart';
 abstract class NewsState implements Built<NewsState, NewsStateBuilder> {
   bool get isLoading;
   bool get isSuccess;
+  bool get isSearch;
+  bool get isChanged;
   String get errorMessage;
   NewsEntity get newsEntity;
+  NewsEntity get newsResult;
 
   NewsState._();
 
@@ -17,8 +20,12 @@ abstract class NewsState implements Built<NewsState, NewsStateBuilder> {
     return NewsState((b) => b
       ..isLoading = false
       ..isSuccess = false
+      ..isSearch = false
+      ..isChanged = false
       ..errorMessage = ''
       ..newsEntity =
+          NewsEntity(status: "", copyright: "", num_results: 0, results: [])
+      ..newsResult =
           NewsEntity(status: "", copyright: "", num_results: 0, results: []));
   }
 }

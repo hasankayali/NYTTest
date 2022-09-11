@@ -24,7 +24,7 @@ void main() {
     );
   });
 
-  const tNewsModel = NewsModel(
+  NewsModel tNewsModel = NewsModel(
       num_results: 10, copyright: "test", status: "true", results: []);
 
   group('get current News', () {

@@ -50,9 +50,9 @@ class _MyAppState extends State<MyApp> {
             theme: ThemeData.light().copyWith(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
-              colorScheme: const ColorScheme.light(
-                  secondary: Color(0xffEE8A39),
-                  primary: Color(0xff2992D4),
+              colorScheme: ColorScheme.light(
+                  secondary: Colors.grey.shade300,
+                  primary: const Color(0xff78E0C3),
                   background: Colors.white,
                   surface: Colors.black),
               primaryTextTheme:

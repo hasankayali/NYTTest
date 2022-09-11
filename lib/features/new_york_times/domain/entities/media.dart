@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-
-import 'media_meta_data.dart';
+import 'package:nytimestest/features/new_york_times/data/models/media_meta_data_data_model.dart';
 
 class MediaEntity extends Equatable {
   final String? type;
@@ -8,7 +7,7 @@ class MediaEntity extends Equatable {
   final String? caption;
   final String? copyright;
   final int? approved_for_syndication;
-  final List<MediaMetaDataEntity>? metadata;
+  final List<MediaMetaDataDataModel>? metadata;
 
   const MediaEntity({
     this.type,

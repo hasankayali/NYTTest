@@ -15,7 +15,7 @@ void main() {
     useCase = GetNews(mockNewsRepository);
   });
 
-  const testNewsDetail = NewsModel(
+  NewsModel testNewsDetail = NewsModel(
       num_results: 10, copyright: "test", status: "true", results: []);
 
   const tCityName = 7;
@@ -25,7 +25,7 @@ void main() {
     () async {
       // arrange
       when(mockNewsRepository.getNews(tCityName))
-          .thenAnswer((_) async => const Right(testNewsDetail));
+          .thenAnswer((_) async => Right(testNewsDetail));
 
       // act
       final result = await useCase.call(Params(tCityName));

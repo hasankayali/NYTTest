@@ -12,9 +12,15 @@ class _$NewsState extends NewsState {
   @override
   final bool isSuccess;
   @override
+  final bool isSearch;
+  @override
+  final bool isChanged;
+  @override
   final String errorMessage;
   @override
   final NewsEntity newsEntity;
+  @override
+  final NewsEntity newsResult;
 
   factory _$NewsState([void Function(NewsStateBuilder)? updates]) =>
       (new NewsStateBuilder()..update(updates))._build();
@@ -22,15 +28,22 @@ class _$NewsState extends NewsState {
   _$NewsState._(
       {required this.isLoading,
       required this.isSuccess,
+      required this.isSearch,
+      required this.isChanged,
       required this.errorMessage,
-      required this.newsEntity})
+      required this.newsEntity,
+      required this.newsResult})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(isLoading, r'NewsState', 'isLoading');
     BuiltValueNullFieldError.checkNotNull(isSuccess, r'NewsState', 'isSuccess');
+    BuiltValueNullFieldError.checkNotNull(isSearch, r'NewsState', 'isSearch');
+    BuiltValueNullFieldError.checkNotNull(isChanged, r'NewsState', 'isChanged');
     BuiltValueNullFieldError.checkNotNull(
         errorMessage, r'NewsState', 'errorMessage');
     BuiltValueNullFieldError.checkNotNull(
         newsEntity, r'NewsState', 'newsEntity');
+    BuiltValueNullFieldError.checkNotNull(
+        newsResult, r'NewsState', 'newsResult');
   }
 
   @override
@@ -46,16 +59,25 @@ class _$NewsState extends NewsState {
     return other is NewsState &&
         isLoading == other.isLoading &&
         isSuccess == other.isSuccess &&
+        isSearch == other.isSearch &&
+        isChanged == other.isChanged &&
         errorMessage == other.errorMessage &&
-        newsEntity == other.newsEntity;
+        newsEntity == other.newsEntity &&
+        newsResult == other.newsResult;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, isLoading.hashCode), isSuccess.hashCode),
-            errorMessage.hashCode),
-        newsEntity.hashCode));
+        $jc(
+            $jc(
+                $jc(
+                    $jc($jc($jc(0, isLoading.hashCode), isSuccess.hashCode),
+                        isSearch.hashCode),
+                    isChanged.hashCode),
+                errorMessage.hashCode),
+            newsEntity.hashCode),
+        newsResult.hashCode));
   }
 
   @override
@@ -63,8 +85,11 @@ class _$NewsState extends NewsState {
     return (newBuiltValueToStringHelper(r'NewsState')
           ..add('isLoading', isLoading)
           ..add('isSuccess', isSuccess)
+          ..add('isSearch', isSearch)
+          ..add('isChanged', isChanged)
           ..add('errorMessage', errorMessage)
-          ..add('newsEntity', newsEntity))
+          ..add('newsEntity', newsEntity)
+          ..add('newsResult', newsResult))
         .toString();
   }
 }
@@ -80,6 +105,14 @@ class NewsStateBuilder implements Builder<NewsState, NewsStateBuilder> {
   bool? get isSuccess => _$this._isSuccess;
   set isSuccess(bool? isSuccess) => _$this._isSuccess = isSuccess;
 
+  bool? _isSearch;
+  bool? get isSearch => _$this._isSearch;
+  set isSearch(bool? isSearch) => _$this._isSearch = isSearch;
+
+  bool? _isChanged;
+  bool? get isChanged => _$this._isChanged;
+  set isChanged(bool? isChanged) => _$this._isChanged = isChanged;
+
   String? _errorMessage;
   String? get errorMessage => _$this._errorMessage;
   set errorMessage(String? errorMessage) => _$this._errorMessage = errorMessage;
@@ -88,6 +121,10 @@ class NewsStateBuilder implements Builder<NewsState, NewsStateBuilder> {
   NewsEntity? get newsEntity => _$this._newsEntity;
   set newsEntity(NewsEntity? newsEntity) => _$this._newsEntity = newsEntity;
 
+  NewsEntity? _newsResult;
+  NewsEntity? get newsResult => _$this._newsResult;
+  set newsResult(NewsEntity? newsResult) => _$this._newsResult = newsResult;
+
   NewsStateBuilder();
 
   NewsStateBuilder get _$this {
@@ -95,8 +132,11 @@ class NewsStateBuilder implements Builder<NewsState, NewsStateBuilder> {
     if ($v != null) {
       _isLoading = $v.isLoading;
       _isSuccess = $v.isSuccess;
+      _isSearch = $v.isSearch;
+      _isChanged = $v.isChanged;
       _errorMessage = $v.errorMessage;
       _newsEntity = $v.newsEntity;
+      _newsResult = $v.newsResult;
       _$v = null;
     }
     return this;
@@ -123,10 +163,16 @@ class NewsStateBuilder implements Builder<NewsState, NewsStateBuilder> {
                 isLoading, r'NewsState', 'isLoading'),
             isSuccess: BuiltValueNullFieldError.checkNotNull(
                 isSuccess, r'NewsState', 'isSuccess'),
+            isSearch: BuiltValueNullFieldError.checkNotNull(
+                isSearch, r'NewsState', 'isSearch'),
+            isChanged: BuiltValueNullFieldError.checkNotNull(
+                isChanged, r'NewsState', 'isChanged'),
             errorMessage: BuiltValueNullFieldError.checkNotNull(
                 errorMessage, r'NewsState', 'errorMessage'),
             newsEntity: BuiltValueNullFieldError.checkNotNull(
-                newsEntity, r'NewsState', 'newsEntity'));
+                newsEntity, r'NewsState', 'newsEntity'),
+            newsResult: BuiltValueNullFieldError.checkNotNull(
+                newsResult, r'NewsState', 'newsResult'));
     replace(_$result);
     return _$result;
   }

@@ -6,7 +6,7 @@ import 'package:nytimestest/features/new_york_times/data/models/news_model.dart'
 import '../../helpers/json_reader.dart';
 
 void main() {
-  const tNewsModel = NewsModel(
+  NewsModel tNewsModel = NewsModel(
       num_results: 10, copyright: "test", status: "true", results: []);
 
   group('from json', () {
