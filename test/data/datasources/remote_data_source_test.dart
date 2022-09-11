@@ -92,6 +92,29 @@ void main() {
         expect(() => call, throwsA(isA<ConnectionException>()));
       },
     );
+    test(
+      'should throw dio error when dio fail',
+      () async {
+        // arrange
+        when(
+          mockHttpClient.get("${MyUrls.mostPopular}7.json",
+              queryParameters: {"api-key": Variables.apiKey}),
+        ).thenThrow(
+          dio.DioError(
+              requestOptions: dio.RequestOptions(
+                  path: "${MyUrls.mostPopular}7.json",
+                  queryParameters: {"api-key": Variables.apiKey}),
+              type: dio.DioErrorType.other),
+        );
+
+        // act
+        final call = dataSource.getNews(7);
+
+        // assert
+
+        expect(() => call, throwsA(isA<ServerException>()));
+      },
+    );
 
     test(
       'should throw a server exception when the response code is 404 or other',

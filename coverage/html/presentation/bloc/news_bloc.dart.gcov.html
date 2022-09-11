@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-09-11 02:46:59</td>
+            <td class="headerValue">2022-09-11 20:01:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -75,13 +75,13 @@
 <a name="13"><span class="lineNum">      13 </span><span class="lineCov">          1 :         ..isSuccess = false</span></a>
 <a name="14"><span class="lineNum">      14 </span><span class="lineCov">          1 :         ..errorMessage = &quot;&quot;</span></a>
 <a name="15"><span class="lineNum">      15 </span><span class="lineCov">          1 :         ..isLoading = true));</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">          5 :       final result = await getNews(Params(event.period));</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">          4 :       final result = await getNews(Params(event.period));</span></a>
 <a name="17"><span class="lineNum">      17 </span>            : </a>
 <a name="18"><span class="lineNum">      18 </span><span class="lineCov">          2 :       return result.fold((l) async {</span></a>
 <a name="19"><span class="lineNum">      19 </span><span class="lineCov">          4 :         emit(state.rebuild((b) =&gt; b</span></a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">          1 :           ..isLoading = false</span></a>
 <a name="21"><span class="lineNum">      21 </span><span class="lineCov">          1 :           ..isSuccess = false</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">          1 :           ..errorMessage = l));</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">          2 :           ..errorMessage = l.message));</span></a>
 <a name="23"><span class="lineNum">      23 </span><span class="lineCov">          1 :       }, (r) async {</span></a>
 <a name="24"><span class="lineNum">      24 </span><span class="lineCov">          4 :         emit(state.rebuild((b) =&gt; b</span></a>
 <a name="25"><span class="lineNum">      25 </span><span class="lineCov">          1 :           ..isLoading = false</span></a>
