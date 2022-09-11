@@ -1,0 +1,68 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2022 The New York Times Company.  All Rights Reserved.",
+  "num_results": 1,
+  "results": [
+    {
+      "uri": "nyt://article/b43c1a08-89fd-5e7f-900f-b4605e6f6ab0",
+      "url": "https://www.nytimes.com/2022/08/18/health/minoxidil-hair-loss-pills.html",
+      "id": 100000008474998,
+      "asset_id": 100000008474998,
+      "source": "New York Times",
+      "published_date": "2022-08-18",
+      "updated": "2022-08-24 10:18:24",
+      "section": "Health",
+      "subsection": "",
+      "nytdsection": "health",
+      "adx_keywords": "Hair;Baldness;Rogaine (Drug);Drugs (Pharmaceuticals);Doctors;Medicine and Health;Generic Brands and Products;internal-sub-only",
+      "column": null,
+      "byline": "By Gina Kolata",
+      "type": "Article",
+      "title": "An Old Medicine Grows New Hair for Pennies a Day, Doctors Say",
+      "abstract": "Dermatologists who specialize in hair loss say that the key ingredient in a topical treatment worked even better when taken orally at a low dose.",
+      "des_facet": [
+        "Hair",
+        "Baldness",
+        "Rogaine (Drug)",
+        "Drugs (Pharmaceuticals)",
+        "Doctors",
+        "Medicine and Health",
+        "Generic Brands and Products",
+        "internal-sub-only"
+      ],
+      "org_facet": [],
+      "per_facet": [],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Brandy Gray, 44, was seen by Dr. Crystal Aguh before and after treatment with oral minoxidil.",
+          "copyright": "Crystal Aguh/Johns Hopkins School of Medicine",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/08/18/science/18sci-hairloss/18sci-hairloss-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/08/18/science/18sci-hairloss/18sci-hairloss-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/08/18/science/18sci-hairloss/18sci-hairloss-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    }
+  ]
+}

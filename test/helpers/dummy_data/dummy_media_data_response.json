@@ -1,0 +1,29 @@
+
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Brandy Gray, 44, was seen by Dr. Crystal Aguh before and after treatment with oral minoxidil.",
+          "copyright": "Crystal Aguh/Johns Hopkins School of Medicine",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/08/18/science/18sci-hairloss/18sci-hairloss-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/08/18/science/18sci-hairloss/18sci-hairloss-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/08/18/science/18sci-hairloss/18sci-hairloss-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+
