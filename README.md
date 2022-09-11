@@ -1,19 +1,48 @@
 # nytimestest
 
-A new Flutter project.
+Assignment test for flutter job position.
+
+### Running the app
+
+To run this app you need to be downloaded Android studio, Flutter latest sdk(3.3.1):
+
+* Clone the project to android studio.
+* Run `Flutter pub get` in android studio terminal.
+* Run the application on Emulator or physical device.
+
+### Running the tests
+
+To run all units test in android studio:
+
+* menu-->Run-->Edit configurations
+* Add a new configurations --> Flutter Test
+* Configuration:
+  Test scope: All in directory
+  Test directory: (project absolute path)/test.
+
+### Generate code coverage report
+
+To generate code coverage report you need to be downloaded git([git download link](https://git-scm.com/download/win)):
+
+* Run `flutter test --coverage` in android studio terminal.
+* Open git bash in project absolute path as shown:
+
 <p align="center">
- <img width="800" alt="wonderous-banner-800w" src="coverage/1024 x 500  pix-01.png">
+ <img width="800" alt="wonderous-banner-800w" src="read_me_images/git bash.png">
 </p>
 
-## Getting Started
+* Run `./genhtml.perl ./coverage/lcov.info -o coverage/html` in git bash window.
 
-This project is a starting point for a Flutter application.
+Now you can find the report in "(project absolute path)/coverage/html/index.html".
+  
+[generated report url](https://github.com/hasankayali/NYTTest/tree/master/coverage/html/index.html) 
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+
+
+
+
