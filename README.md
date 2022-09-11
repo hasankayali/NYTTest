@@ -17,8 +17,8 @@ To run all units test in android studio:
 * menu-->Run-->Edit configurations
 * Add a new configurations --> Flutter Test
 * Configuration:
-  Test scope: All in directory
-  Test directory: (project absolute path)/test.
+  - Test scope: All in directory
+  - Test directory: (project absolute path)/test.
 
 ### Generate code coverage report
 
