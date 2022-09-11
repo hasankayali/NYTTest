@@ -7,8 +7,9 @@ import 'dart:async' as _i5;
 
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:nytimestest/core/constants/failure.dart' as _i6;
 import 'package:nytimestest/features/new_york_times/domain/entities/news.dart'
-    as _i6;
+    as _i7;
 import 'package:nytimestest/features/new_york_times/domain/repositories/news_repository.dart'
     as _i2;
 import 'package:nytimestest/features/new_york_times/domain/usecases/get_news.dart'
@@ -51,10 +52,12 @@ class MockGetNews extends _i1.Mock implements _i4.GetNews {
                   _FakeNewsRepository_0(this, Invocation.getter(#repository)))
           as _i2.NewsRepository);
   @override
-  _i5.Future<_i3.Either<dynamic, _i6.NewsEntity>> call(_i4.Params? params) =>
+  _i5.Future<_i3.Either<_i6.Failure, _i7.NewsEntity>> call(
+          _i4.Params? params) =>
       (super.noSuchMethod(Invocation.method(#call, [params]),
-          returnValue: _i5.Future<_i3.Either<dynamic, _i6.NewsEntity>>.value(
-              _FakeEither_1<dynamic, _i6.NewsEntity>(
-                  this, Invocation.method(#call, [params])))) as _i5
-          .Future<_i3.Either<dynamic, _i6.NewsEntity>>);
+              returnValue:
+                  _i5.Future<_i3.Either<_i6.Failure, _i7.NewsEntity>>.value(
+                      _FakeEither_1<_i6.Failure, _i7.NewsEntity>(
+                          this, Invocation.method(#call, [params]))))
+          as _i5.Future<_i3.Either<_i6.Failure, _i7.NewsEntity>>);
 }

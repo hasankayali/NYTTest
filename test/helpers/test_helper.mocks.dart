@@ -8,12 +8,13 @@ import 'dart:async' as _i6;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:dio/dio.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:nytimestest/core/constants/failure.dart' as _i7;
 import 'package:nytimestest/features/new_york_times/data/data_source/get_news_remote_data_source.dart'
-    as _i8;
+    as _i9;
 import 'package:nytimestest/features/new_york_times/data/models/news_model.dart'
     as _i3;
 import 'package:nytimestest/features/new_york_times/domain/entities/news.dart'
-    as _i7;
+    as _i8;
 import 'package:nytimestest/features/new_york_times/domain/repositories/news_repository.dart'
     as _i5;
 
@@ -73,19 +74,20 @@ class MockNewsRepository extends _i1.Mock implements _i5.NewsRepository {
   }
 
   @override
-  _i6.Future<_i2.Either<String, _i7.NewsEntity>> getNews(int? period) =>
+  _i6.Future<_i2.Either<_i7.Failure, _i8.NewsEntity>> getNews(int? period) =>
       (super.noSuchMethod(Invocation.method(#getNews, [period]),
-              returnValue: _i6.Future<_i2.Either<String, _i7.NewsEntity>>.value(
-                  _FakeEither_0<String, _i7.NewsEntity>(
-                      this, Invocation.method(#getNews, [period]))))
-          as _i6.Future<_i2.Either<String, _i7.NewsEntity>>);
+              returnValue:
+                  _i6.Future<_i2.Either<_i7.Failure, _i8.NewsEntity>>.value(
+                      _FakeEither_0<_i7.Failure, _i8.NewsEntity>(
+                          this, Invocation.method(#getNews, [period]))))
+          as _i6.Future<_i2.Either<_i7.Failure, _i8.NewsEntity>>);
 }
 
 /// A class which mocks [NewsRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockNewsRemoteDataSource extends _i1.Mock
-    implements _i8.NewsRemoteDataSource {
+    implements _i9.NewsRemoteDataSource {
   MockNewsRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }

@@ -3,6 +3,8 @@ import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:nytimestest/core/constants/api_constant.dart';
+import 'package:nytimestest/core/constants/exception.dart';
+import 'package:nytimestest/core/constants/failure.dart';
 import 'package:nytimestest/core/network/network_info.dart';
 import 'package:nytimestest/features/new_york_times/data/models/news_model.dart';
 import 'package:nytimestest/features/new_york_times/data/repositories/news_repository_impl.dart';
@@ -48,14 +50,14 @@ void main() {
       'should return server failure when a call to data source is unsuccessful',
       () async {
         // arrange
-        when(mockRemoteDataSource.getNews(7)).thenThrow(Er.error);
+        when(mockRemoteDataSource.getNews(7)).thenThrow(ServerException());
 
         // act
         final result = await repository.getNews(7);
 
         // assert
         verify(mockRemoteDataSource.getNews(7));
-        expect(result, equals(Left(Er.error)));
+        expect(result, equals(Left(ServerFailure(Er.error))));
       },
     );
 
@@ -63,7 +65,7 @@ void main() {
       'should return connection failure when the device has no internet',
       () async {
         // arrange
-        when(mockRemoteDataSource.getNews(7)).thenThrow(Er.networkError);
+        when(mockRemoteDataSource.getNews(7)).thenThrow(ConnectionException());
 
         // act
         final result = await repository.getNews(7);
@@ -72,7 +74,7 @@ void main() {
         verify(mockRemoteDataSource.getNews(7));
         expect(
           result,
-          equals(Left(Er.networkError)),
+          equals(Left(ConnectionFailure(Er.networkError))),
         );
       },
     );

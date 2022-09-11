@@ -3,6 +3,8 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:nytimestest/core/constants/api_constant.dart';
+import 'package:nytimestest/core/constants/failure.dart';
 import 'package:nytimestest/features/new_york_times/domain/entities/news.dart';
 import 'package:nytimestest/features/new_york_times/domain/usecases/get_news.dart';
 import 'package:nytimestest/features/new_york_times/presentation/bloc/news_bloc.dart';
@@ -53,7 +55,7 @@ void main() {
     'should emit [loading, error] when get data is unsuccessful',
     build: () {
       when(mockGetCurrentNews.call(any))
-          .thenAnswer((_) async => const Left('Server failure'));
+          .thenAnswer((_) async => const Left(ServerFailure(Er.error)));
       return newsBloc;
     },
     act: (bloc) => bloc.onGetNews(7),
@@ -71,7 +73,7 @@ void main() {
         (b) => b
           ..isLoading = false
           ..isSuccess = false
-          ..errorMessage = "Server failure"
+          ..errorMessage = Er.error
           ..newsEntity = const NewsEntity(
               status: "", copyright: "", num_results: 0, results: []),
       ),

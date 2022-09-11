@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:nytimestest/core/constants/failure.dart';
 import 'package:nytimestest/core/usecases/UseCase.dart';
 import 'package:nytimestest/features/new_york_times/domain/entities/news.dart';
 
@@ -10,7 +11,7 @@ class GetNews extends UseCase<NewsEntity, Params> {
   GetNews(this.repository);
 
   @override
-  Future<Either<dynamic, NewsEntity>> call(Params params) async {
+  Future<Either<Failure, NewsEntity>> call(Params params) async {
     return await repository.getNews(params.period);
   }
 }

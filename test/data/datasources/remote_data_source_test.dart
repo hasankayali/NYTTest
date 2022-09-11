@@ -4,6 +4,7 @@ import 'package:dio/dio.dart' as dio;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:nytimestest/core/constants/api_constant.dart';
+import 'package:nytimestest/core/constants/exception.dart';
 import 'package:nytimestest/features/new_york_times/data/data_source/get_news_remote_data_source.dart';
 import 'package:nytimestest/features/new_york_times/data/models/news_model.dart';
 
@@ -65,7 +66,7 @@ void main() {
         final call = dataSource.getNews(7);
 
         // assert
-        expect(() => call, throwsA(Er.networkError));
+        expect(() => call, throwsA(isA<ConnectionException>()));
       },
     );
     test(
@@ -88,7 +89,7 @@ void main() {
 
         // assert
 
-        expect(() => call, throwsA(Er.networkError));
+        expect(() => call, throwsA(isA<ConnectionException>()));
       },
     );
 
@@ -112,7 +113,7 @@ void main() {
         final call = dataSource.getNews(7);
 
         // assert
-        expect(() => call, throwsA(Er.error));
+        expect(() => call, throwsA(isA<ServerException>()));
       },
     );
   });

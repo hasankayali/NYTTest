@@ -19,7 +19,7 @@ class NewsBloc extends Bloc<NewsEvents, NewsState> {
         emit(state.rebuild((b) => b
           ..isLoading = false
           ..isSuccess = false
-          ..errorMessage = l));
+          ..errorMessage = l.message));
       }, (r) async {
         emit(state.rebuild((b) => b
           ..isLoading = false

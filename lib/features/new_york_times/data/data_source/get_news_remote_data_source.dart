@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:nytimestest/core/constants/exception.dart';
 import 'package:nytimestest/features/new_york_times/data/models/news_model.dart';
 
 import '../../../../core/constants/api_constant.dart';
@@ -25,13 +26,13 @@ class NewsRemoteDataSourceImpl implements NewsRemoteDataSource {
       return NewsModel.fromJson(json.decode(result.data));
     } on DioError catch (ex) {
       if (ex.type == DioErrorType.connectTimeout) {
-        throw Er.networkError;
+        throw ConnectionException();
       } else if (ex.type == DioErrorType.receiveTimeout) {
-        throw Er.networkError;
+        throw ConnectionException();
       }
-      throw Er.error;
+      throw ServerException();
     } catch (e) {
-      throw Er.error;
+      throw ServerException();
     }
   }
 }
